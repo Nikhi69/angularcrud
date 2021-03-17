@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+<body>
+  <div class="container">
+    
+      
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0044cc;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Movie Cruiser</a>
+      
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" aria-current="page" [routerLink]="['/adminlist']">Movies</a>
+         <a class="nav-link" href="/logout">Logout</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+    
+      <div class="table-responsive">
+      
+  
+        <table class="table caption-top table-hover table-light table-striped table-bordered" >
+        
+          <thead>
+            <tr class="h6">
+              <th>Title</th>
+              <th>Box Office</th>
+              <th>Active</th>
+              <th>Date of Release</th>
+              <th>Genre</th>
+              <th>Has Teaser</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            
+            <tr *ngFor="let movie of movies">
+              <td >{{movie.title}}</td>
+             <td>{{movie.boxoffice }}</td>
+              <td>{{movie.active }}</td>
+              <td>{{movie.dateoflaunch | date }}</td>
+              <td>{{movie.genre }}</td>
+              <td>{{movie.hasteaser }}</td>
+              <td><a class="btn btn-primary" (click)="updateMovie(movie.id)" >Edit</a></td> 
+            </tr>
+          
+        </tbody>
+          
+        </table>
+      </div>
+      <br>
+      <div class="footer">
+        <div class="foot">
+          <p>Copyright @ 2021</p>
+        </div>
+      </div>
+    </div>
+</body>
+</html>

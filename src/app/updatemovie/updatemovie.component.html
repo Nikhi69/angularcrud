@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+         
+      <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #0044cc;">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">Movie Cruiser</a>
+          
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+              <a class="nav-link active" aria-current="page" [routerLink]="['/adminlist']">Movies</a>
+             <a class="nav-link" href="/logout">Logout</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+        <form>
+            <table>
+                <tr>
+                    <td>Title</td>
+                </tr>
+                <tr>
+
+                    <td class="title">
+
+                        <input id="title" type="text" [(ngModel)]="movie.title" name="title">
+                    </td>
+                </tr>
+                <tr>
+                    <td>Gross ($)</td>
+                    <td>Active</td>
+                    <td>Date of Launch</td>
+                    <td>Genre</td>
+                </tr>
+                <tr>
+                    <td>
+                        <input type="text" name="gross" [(ngModel)]="movie.boxoffice" width="50%">
+                    </td>
+                    <td>
+                        <input type="radio" id="Yes" name="Active" value="Yes" >
+                        <label for="Yes">Yes</label>
+                        <input type="radio" id="No" name="Active" value="No">
+                        <label for="No">No</label>
+                    </td>
+                    <td>
+                        <input type="date" [ngModel]="movie.dateoflaunch|date:'yyyy-MM-dd'" (ngModelChange)="movie.dateoflaunch=$event"name="dol">
+                    </td>
+                    <td>
+                        <select name="genre" id="genre" [(ngModel)]="movie.genre">
+                            <option value="null" selected disabled hidden> Select</option>
+                            <option value="Science Fiction">Science Fiction</option>
+                            <option value="Super Hero">Super Hero</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Comedy">Comedy</option>
+                            <option value="Adventure">Adventure</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="hasteaser"> Has Teaser</label>
+                        Yes <input type="checkbox" id="hasteaser" name="Teaser" value="Yes">
+                        No <input type="checkbox" id="hasteaser"  name="Teaser" value="No">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="save">
+                        <button (click)="saveMovie()"
+                           class="btn btn-primary"
+                            type="submit">Save</button>
+                    </td>
+                </tr>
+            </table>
+
+        </form>
+
+    </div>
+</body>
+
+</html>
